@@ -24,32 +24,20 @@ export class App extends Component {
     imgApi.resetPage()
     imgApi.query = value.trim();
     this.setState({ error: false });
-
-    try{
-      this.setState({isLoading: true})
-      const result = await imgApi.fetchImgItem()
-      this.setState({imgSet: result}) 
-      if(result.length >= 12){
-        this.setState({showButton: true})
-      }
-    } catch(error){
-      this.setState({ error: true });
-    } finally{
-      this.setState({isLoading: false})
-    }
+    this.fetchImg()
   }
   
   handleLoadMoreBtn = async()=>{
     imgApi.incrementPage()
-    try{
+    this.fetchImg()
+  }
+
+fetchImg = () => {
+   try{
       this.setState({isLoading: true})
-      this.setState({error: true})
       const result = await imgApi.fetchImgItem()
       this.setState(({imgSet}) =>({imgSet: [...imgSet, ...result]}))
-
-      if(result.length < 12){
-        this.setState({showButton: false})
-      }
+      result.length >= 12 ? this.setState({showButton: true}) : this.setState({showButton: false})
 
     } catch(error){
       this.setState({error: true})
@@ -57,8 +45,8 @@ export class App extends Component {
     } finally{
       this.setState({isLoading: false})
     }
-    
-  }
+}
+
   onImgClick = (id) =>{
       this.setState(({imgSet, showModal}) => ({
       selectedImg: imgSet.filter(img => img.id === id),
