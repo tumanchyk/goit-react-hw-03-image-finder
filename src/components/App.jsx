@@ -19,15 +19,15 @@ export class App extends Component {
     showModal: false,
     error: false,
   }
-  onSearchForm = async ({value}) =>{
+  onSearchForm = ({value}) =>{
     if(!value.length)  return;
-    imgApi.resetPage()
     imgApi.query = value.trim();
-    this.setState({ error: false });
+    this.setState({ error: false, imgSet: []});
+    imgApi.resetPage()
     this.fetchImg()
   }
   
-  handleLoadMoreBtn = async()=>{
+  handleLoadMoreBtn =()=>{
     imgApi.incrementPage()
     this.fetchImg()
   }
