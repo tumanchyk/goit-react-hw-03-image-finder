@@ -32,7 +32,7 @@ export class App extends Component {
     this.fetchImg()
   }
 
-fetchImg = () => {
+fetchImg = async() => {
    try{
       this.setState({isLoading: true})
       const result = await imgApi.fetchImgItem()
