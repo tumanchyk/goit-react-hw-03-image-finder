@@ -23,6 +23,8 @@ export class App extends Component {
     if(!value.length)  return;
     imgApi.resetPage()
     imgApi.query = value.trim();
+    this.setState({ error: false });
+
     try{
       this.setState({isLoading: true})
       const result = await imgApi.fetchImgItem()
