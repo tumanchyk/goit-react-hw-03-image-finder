@@ -20,15 +20,15 @@ export class App extends Component {
     error: false,
   }
   onSearchForm = ({value}) =>{
-    if(!value.length)  return;
-    imgApi.query = value.trim();
-    this.setState({ error: false, imgSet: []});
+    const searchValue = value.trim();
+    this.setState({ error: false, imgSet: [], showButton: false});
+    if(!searchValue.length)  return;
+    imgApi.query = searchValue;
     imgApi.resetPage()
     this.fetchImg()
   }
   
   handleLoadMoreBtn =()=>{
-    imgApi.incrementPage()
     this.fetchImg()
   }
 
