@@ -9,6 +9,10 @@ class getImgsApi {
     }
    async fetchImgItem (){
     const response = await axios.get(`${pixabayEndPoint}?key=${pixabayKey}&q=${this.query}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.pageNum}&per_page=12`)
+    if (response.data.hits.length === 0) {
+        return Promise.reject(
+          new Error())}
+
     this.incrementPage();  
     return response.data.hits}
 
@@ -21,23 +25,3 @@ class getImgsApi {
 
 }
 export {getImgsApi}
-
-    // class PhotoAPI{
-    //     constructor(){
-    //         this.queryItem = '';
-    //         this.pageNum = 1;
-    //     }
-    //      async fetchCard(){
-    //         const response = await axios.get(`${ENDPOINT}?key=${API_KEY}&q=${this.queryItem}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.pageNum}&per_page=40`)
-    //         this.incrementPage();           
-    //         return response.data
-    //     }
-    //     resetPage(){
-    //         this.pageNum = 1
-    //     }
-    //     incrementPage(){
-    //         this.pageNum += 1
-    //     }
-    // }
-    
-    // export { PhotoAPI }

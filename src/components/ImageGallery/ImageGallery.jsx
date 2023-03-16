@@ -4,10 +4,11 @@ import { ImageGalleryItem } from './ImageGalleryItem';
 export function ImageGallery({items, onImgClick}){
         return(
             <Gallery>
-                {items.map((item) => <ImageGalleryItem key={item.id} imgData={item} onClick={()=> onImgClick(item.id)}></ImageGalleryItem>)}
+                {items.map((item) => <ImageGalleryItem key={item.id} item={item} onClick={onImgClick}></ImageGalleryItem>)}
             </Gallery>
         )
  }
  ImageGallery.propTypes = {
     items: PropTypes.array.isRequired,
+    onImgClick: PropTypes.func.isRequired,
  }

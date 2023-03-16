@@ -1,11 +1,13 @@
 import styled from "@emotion/styled"
 export const Button = styled.button`
     padding: 8px 16px;
-    border-radius: 2px;
-    background-color: #3f51b5;
+    border-radius: 50px;
+    background-color: #0bc2d6;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
     color: #fff;
     border: 0;
     text-decoration: none;
@@ -20,7 +22,7 @@ export const Button = styled.button`
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
       &:hover,
       &:focus {
-        background-color: #303f9f;
+        background-color: #06b6c9;
       }
   `
   

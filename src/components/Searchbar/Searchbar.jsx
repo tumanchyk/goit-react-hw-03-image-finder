@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
-import { SearchSection, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput, SearchError } from './Searchbar.styled';
+import { SearchSection, SearchForm, SearchFormButton, SearchFormInput, SearchIcon} from './Searchbar.styled';
 
 export const Searchbar = ({onSubmit}) => {
     const handleSubmit = (values, actions) => {
@@ -17,7 +17,7 @@ export const Searchbar = ({onSubmit}) => {
             onSubmit={handleSubmit}>
              <SearchForm>
                <SearchFormButton type="submit">
-           <SearchFormButtonLabel>Search</SearchFormButtonLabel> 
+                <SearchIcon></SearchIcon>
               </SearchFormButton>
            
               <SearchFormInput  

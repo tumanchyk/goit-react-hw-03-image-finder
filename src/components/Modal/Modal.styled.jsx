@@ -15,7 +15,13 @@ const Overlay = styled.div`
   
   
   const ModalEl = styled.div`
-    max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 24px);
-  `
-  export {Overlay, ModalEl}
+   max-width: calc(100vw - 480px);
+  max-height: calc(100vh - 100px);
+  overflow: hidden;
+   `
+
+  const ModalImg = styled.img`
+  display: block;
+  width: 100%;
+  height: auto;`
+  export {Overlay, ModalEl, ModalImg}
